@@ -1,5 +1,3 @@
-from email.mime import base
-from ntpath import join
 from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy 
 from flask_marshmallow import Marshmallow
@@ -9,8 +7,8 @@ import os
 #Init app
 app = Flask(__name__)
 basedir = os.path.abspath(os.path.dirname(__file__))
-env = join(basedir, '.env')
-env_local = join(basedir, '.env.local')
+env = os.path.join(basedir, '.env')
+env_local = os.path.join(basedir, '.env.local')
 
 load_dotenv(env)
 load_dotenv(env_local)
